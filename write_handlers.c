@@ -2,13 +2,13 @@
 
 /************************* WRITE HANDLE *************************/
 /**
- * handle_write_char - Prints a string
- * @c: char types.
+ * handle_write_char - This function prints a string
+ * @c: The char types.
  * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags.
+ * @flags:  This calculates active flags.
  * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
+ * @precision: The precision specifier
+ * @size: The size specifier
  *
  * Return: Number of chars printed.
  */
@@ -46,16 +46,16 @@ int handle_write_char(char c, char buffer[],
 
 /************************* WRITE NUMBER *************************/
 /**
- * write_number - Prints a string
+ * write_number - The Function prints a string
  * @is_negative: Lista of arguments
  * @ind: char types.
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
+ * @precision: The precision specifier
+ * @size: The Size specifier
  *
- * Return: Number of chars printed.
+ * Return: The number of chars printed.
  */
 int write_number(int is_negative, int ind, char buffer[],
 			int flags, int width, int precision, int size)
@@ -179,9 +179,7 @@ int write_unsgnd(int is_negative, int ind,
 	{
 		for (i = 0; i < width - length; i++)
 			buffer[i] = padd;
-
 		buffer[i] = '\0';
-
 		if (flags & F_MINUS) /* Asign extra char to left of buffer [buffer>padd]*/
 		{
 			return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));
@@ -191,8 +189,7 @@ int write_unsgnd(int is_negative, int ind,
 			return (write(1, &buffer[0], i) + write(1, &buffer[ind], length));
 		}
 	}
-
-return (write(1, &buffer[ind], length));
+	return (write(1, &buffer[ind], length));
 }
 
 /**
