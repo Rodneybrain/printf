@@ -8,7 +8,7 @@
  * Return: pointer to valid function or NULL
  */
 
-static int (*check_for_specifiers(const char *format)) (va_list)
+static int (*check_for_specifiers(const char *format))(va_list)
 {
 unsigned int i;
 print_t p[] = {
@@ -26,21 +26,22 @@ print_t p[] = {
 	{"r", print_r},
 	{"R", print_R},
 	{NULL, NULL}
-	 };
+};
 
-	 for (i = 0; p[i].t != NULL; i++)
-	 {
-	 if (*(p[i].t) == *format)
-	 {
-	 break;
-	 }
-	 }
-	 return (p[i].f);
+for (i = 0; p[i].t != NULL; i++)
+{
+	if (*(p[i].t) == *format)
+	{
+		break;
+	}
 }
+return (p[i].f);
+}
+
 
 /**
  * _printf - prints anything
- * @Fformat: list of argument types passed to the function
+ * @format: list of argument types passed to the function
  *
  * Return: number of characters printed
  */
@@ -48,11 +49,11 @@ int _printf(const char *format, ...)
 {
 	unsigned int i = 0, count = 0;
 	va_list valist;
-	int (*f) (va_list);
+	int (*f)(va_list);
 
 	if (format == NULL)
 		return (-1);
-	va_start (valist, format);
+	va_start(valist, forat);
 	while (format[i])
 	{
 		for (; format[i] != '%' && format[i]; i++)
